@@ -1,0 +1,18 @@
+name: Get Unity license activation file
+
+on: workflow_dispatch
+
+jobs:
+    requestManualActivationFile:
+        name: Requeat Manual Activation File
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            
+            - uses: webberlakken/unity-request-manual-activation-file@v2
+            id: getManualActivationFile
+            
+            - uses: actions/upload-artifact@v2
+            with:  
+                name: Manual Activation File
+                path: ${{ steps.getManualActivationFile.outputs.filePath }}
