@@ -2,8 +2,20 @@ name: Test project
 
 on: [push, pull_request]
 
+env: 
+    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+    
 jobs:
+    checkLicense:
+        name: Check for Unity License
+        runs-on: ubuntu-latest
+        steps:
+            - name: Fail - No License
+            if: ${{ !startsWith(env.UNITY_LICENSE,  '<') }}
+            run: exit 1
   testAllModes:
+    needs: checkLicense
     name: Test in ${{ matrix.testMode }}
     runs-on: ubuntu-latest
     strategy:
@@ -17,7 +29,7 @@ jobs:
           - standalone
     steps:
       - name: Unity - Activate
-        uses: game-ci/unity-activate@v2.0.0
+        uses: game-ci/unity-activate@v2.0.0 
     
       - uses: actions/checkout@v4
         with:
