@@ -11,7 +11,7 @@ jobs:
 
       - uses: game-ci/unity-request-activation-file@v2
         with:
-            unityVersion: editor-ubuntu-2022.3.13f1-linux-il2cpp-3.0.0
+            unityVersion: 2022.3.13f1
         id: getManualLicenseFile
 
       - uses: actions/upload-artifact@v3
