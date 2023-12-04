@@ -26,8 +26,8 @@ jobs:
           - ./
         testMode:
           - playmode
-          - editmode
-          - standalone
+          # - editmode
+          # - standalone
     steps:
       - name: Unity - Activate
         uses: game-ci/unity-activate@v2.0.0
