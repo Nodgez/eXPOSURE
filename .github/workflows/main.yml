@@ -7,13 +7,13 @@ env:
 
     
 jobs:
-    checkLicense:
-        name: Check for Unity License
-        runs-on: ubuntu-latest
-        steps:
-            - name: Fail - No License
-            if: ${{ !startsWith(env.UNITY_LICENSE,  '<') }}
-            run: exit 1
+  checkLicense:
+    name: Check for Unity License
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail - No License
+        if: ${{ !startsWith(env.UNITY_LICENSE,  '<') }}
+        run: exit 1
   testAllModes:
     needs: checkLicense
     name: Test in ${{ matrix.testMode }}
