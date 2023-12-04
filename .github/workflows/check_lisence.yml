@@ -1,8 +1,0 @@
-name: Activate lisence in secrets
-
-on: workflow_dispatch
-
-jobs:
-  CheckActivate:
-    name: ACTIVATE
-    uses: game-ci/unity-activate@v2.0.0
