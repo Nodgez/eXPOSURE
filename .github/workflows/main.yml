@@ -6,10 +6,6 @@ env:
     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
-
-  activateLicense:
-  - name: Unity - Activate
-    uses: game-ci/unity-activate@v2.0.0
             
   checkLicense:
     name: Check for Unity License
@@ -47,8 +43,6 @@ jobs:
             Library-
       - uses: game-ci/unity-test-runner@v4
         id: tests
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           projectPath: ${{ matrix.projectPath }}
           testMode: ${{ matrix.testMode }}
