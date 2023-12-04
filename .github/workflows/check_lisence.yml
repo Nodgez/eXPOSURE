@@ -1,10 +1,7 @@
 name: Check for license in secrets
 
-env:
-  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-
 on: workflow_dispatch
 
 jobs:
-  checkLicense:
+  CheckActivate:
     uses: game-ci/unity-activate@v2.0.0
