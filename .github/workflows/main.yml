@@ -6,6 +6,11 @@ env:
     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
 jobs:
+
+  activateLicense:
+  - name: Unity - Activate
+    uses: game-ci/unity-activate@v2.0.0
+            
   checkLicense:
     name: Check for Unity License
     runs-on: ubuntu-latest
