@@ -30,7 +30,9 @@ jobs:
           - standalone
     steps:
       - name: Unity - Activate
-        uses: game-ci/unity-activate@v2.0.0 
+        uses: game-ci/unity-activate@v2.0.0
+        with:
+          unityVersion: 2022.3.13f1
     
       - uses: actions/checkout@v4
         with:
