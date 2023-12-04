@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: Fail - No License
         if: ${{ !startsWith(env.UNITY_LICENSE,  '<') }}
-        echo env.UNITY_LICENSE
         run: exit 1
   # testAllModes:
     # needs: checkLicense
