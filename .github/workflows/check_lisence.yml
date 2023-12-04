@@ -1,13 +1,12 @@
 name: Check for license in secrets
 
 env:
-    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
 
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
-    checkLicense:
+  checkLicense:
     name: Check for Unity License
     runs-on: ubuntu-latest
     steps:
