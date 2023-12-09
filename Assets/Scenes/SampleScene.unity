@@ -1092,7 +1092,9 @@ MonoBehaviour:
   dashForce: 100
   movementBlockingMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
+  IsTestingCameraConvertedInput: 1
+  _camera: {fileID: 330585545}
 --- !u!1 &612266041
 GameObject:
   m_ObjectHideFlags: 0

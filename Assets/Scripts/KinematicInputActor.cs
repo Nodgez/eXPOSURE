@@ -9,6 +9,13 @@ namespace Exposure.Input
 {
     public class KinematicInputActor : A_InputActor
     {
+#if UNITY_EDITOR
+        public bool IsTestingCameraConvertedInput;
+#endif
+        [SerializeField] Camera _camera;
+
+        private Vector3 collisionOffset;
+
         public override void Dash_canceled(InputAction.CallbackContext obj)
         {
             print("Dash Complete");
@@ -27,7 +34,11 @@ namespace Exposure.Input
         public override void Movement_performed(InputAction.CallbackContext obj)
         {
             var iVal = obj.ReadValue<Vector2>();
-            heading = new Vector3(iVal.x, 0f, iVal.y);
+            var cameraDirectionality = _camera.transform.TransformDirection(new Vector3(iVal.x, iVal.y));
+            if (IsTestingCameraConvertedInput)
+                heading = new Vector3(cameraDirectionality.x, 0f, cameraDirectionality.z).normalized;
+            else
+                heading = new Vector3(iVal.x, 0, iVal.y);
         }
 
         private void Update()
@@ -42,11 +53,13 @@ namespace Exposure.Input
                 {
                     var dot = Vector3.Dot((targetObject.position - movementBlockerInfo.point).normalized, movementBlockerInfo.normal);
                     var projection = dot / movementBlockerInfo.normal.sqrMagnitude;
-                    heading = projection * movementBlockerInfo.normal;
-                    heading.Normalize();
+                    collisionOffset = projection * movementBlockerInfo.normal;
                 }
             }
-            targetObject.position += heading * speed * Time.deltaTime;
+            else
+                collisionOffset = Vector3.zero;
+
+            targetObject.position += (heading + collisionOffset) * speed * Time.deltaTime;
         }
     }
 }
