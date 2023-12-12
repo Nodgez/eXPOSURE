@@ -15,15 +15,32 @@ namespace Exposure.Input
         [SerializeField] Camera _camera;
 
         private Vector3 collisionOffset;
+        private bool isDashLocked;
 
         public override void Dash_canceled(InputAction.CallbackContext obj)
         {
-            print("Dash Complete");
-            transform.position += heading * speed * Time.deltaTime * dashForce;
         }
 
         public override void Dash_performed(InputAction.CallbackContext obj)
         {
+            print("Dash Performed");
+            if (isDashLocked)
+                return;
+
+            Timer.CreateTimer(1.5f,
+                            () =>
+                            {
+                                isDashLocked = false;
+                                print("Dash Timer Complete");
+                            },
+                            "Dash Timer");
+            transform.position += heading * speed * Time.deltaTime * dashDistance;
+            isDashLocked = true;
+        }
+
+        public override void DropPickup_performed(InputAction.CallbackContext obj)
+        {
+
         }
 
         public override void Movement_canceled(InputAction.CallbackContext obj)

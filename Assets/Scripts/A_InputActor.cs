@@ -7,7 +7,7 @@ namespace Exposure.Input
     {
         [SerializeField] protected Transform targetObject;
         [SerializeField] protected float speed = 5f;
-        [SerializeField] protected float dashForce = 100f;
+        [SerializeField] protected float dashDistance = 100f;
         [SerializeField] protected LayerMask movementBlockingMask;
 
         protected RaycastHit movementBlockerInfo;
@@ -17,6 +17,7 @@ namespace Exposure.Input
         public abstract void Movement_canceled(InputAction.CallbackContext obj);
         public abstract void Dash_performed(InputAction.CallbackContext obj);
         public abstract void Dash_canceled(InputAction.CallbackContext obj);
+        public abstract void DropPickup_performed(InputAction.CallbackContext obj);
 
         private void OnDrawGizmos()
         {

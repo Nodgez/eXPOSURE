@@ -2,55 +2,7 @@
     "name": "PlayerInputScheme",
     "maps": [
         {
-            "name": "Gamepad",
-            "id": "c6bc4c84-5d7d-4bdf-ba5f-0b45652fa426",
-            "actions": [
-                {
-                    "name": "Movement",
-                    "type": "Value",
-                    "id": "d5908569-8c1b-4b86-afc2-6f74c66d3fe1",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Dash",
-                    "type": "Button",
-                    "id": "4f62e298-79e3-4826-9914-b81ae754f0b0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "8b366b5a-0751-4437-a43f-d803af67124a",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "NormalizeVector2",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9b78032d-f5ba-404f-8f97-2ec9b385cd5a",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "Tap(duration=0.1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Keyboard",
+            "name": "Player Navigation",
             "id": "65b04b8d-2670-4fd5-af61-ea55adbf779a",
             "actions": [
                 {
@@ -66,6 +18,15 @@
                     "name": "Dash",
                     "type": "Button",
                     "id": "1760822b-e53b-4b96-8c39-3a3fc448e639",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DropPickup",
+                    "type": "Button",
+                    "id": "deb916d4-bc40-46cd-9f5b-cc53afdb81ef",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -130,12 +91,56 @@
                 },
                 {
                     "name": "",
+                    "id": "2b71a17f-206f-4965-8a92-2fef5b6bba35",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e5850a56-ffa5-4c6e-a983-3b62fcc24cbf",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "97375da4-9aee-49bc-a034-78f7a7e8e5ee",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7fb3982f-f540-44dc-bac6-027b689f67de",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropPickup",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fe2fb996-7371-4cf6-9adf-8eb742d940f6",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DropPickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

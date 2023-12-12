@@ -6,30 +6,17 @@ namespace Exposure.Input
 {
     public class PlayerInputHandler : MonoBehaviour, IInputHandler
     {
-        private PlayerInputScheme inputActions;        
+        private PlayerInputScheme inputActions;
         public void Initialize(A_InputActor inputActor)
         {
             inputActions = new PlayerInputScheme();
             inputActions.Enable();
 
-            var gamePadConnected = Gamepad.all.Count > 0;
-            if (gamePadConnected)
-            {
-                inputActions.Gamepad.Movement.performed += inputActor.Movement_performed;
-                inputActions.Gamepad.Movement.canceled += inputActor.Movement_canceled;
-                inputActions.Gamepad.Dash.performed += inputActor.Dash_performed;
-                inputActions.Gamepad.Dash.canceled += inputActor.Dash_canceled;
-            }
-
-            else
-            {
-                inputActions.Keyboard.Movement.performed += inputActor.Movement_performed;
-                inputActions.Keyboard.Movement.canceled += inputActor.Movement_canceled;
-                inputActions.Keyboard.Dash.performed += inputActor.Dash_performed;
-                inputActions.Keyboard.Dash.canceled += inputActor.Dash_canceled;
-            }
+            inputActions.PlayerNavigation.Movement.performed += inputActor.Movement_performed;
+            inputActions.PlayerNavigation.Movement.canceled += inputActor.Movement_canceled;
+            inputActions.PlayerNavigation.Dash.performed += inputActor.Dash_performed;
+            inputActions.PlayerNavigation.Dash.canceled += inputActor.Dash_canceled;
+            inputActions.PlayerNavigation.DropPickup.performed += inputActor.DropPickup_performed;
         }
-
-
     }
 }

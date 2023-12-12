@@ -24,55 +24,7 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInputScheme"",
     ""maps"": [
         {
-            ""name"": ""Gamepad"",
-            ""id"": ""c6bc4c84-5d7d-4bdf-ba5f-0b45652fa426"",
-            ""actions"": [
-                {
-                    ""name"": ""Movement"",
-                    ""type"": ""Value"",
-                    ""id"": ""d5908569-8c1b-4b86-afc2-6f74c66d3fe1"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Dash"",
-                    ""type"": ""Button"",
-                    ""id"": ""4f62e298-79e3-4826-9914-b81ae754f0b0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""8b366b5a-0751-4437-a43f-d803af67124a"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": ""NormalizeVector2"",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9b78032d-f5ba-404f-8f97-2ec9b385cd5a"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": ""Tap(duration=0.1)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Keyboard"",
+            ""name"": ""Player Navigation"",
             ""id"": ""65b04b8d-2670-4fd5-af61-ea55adbf779a"",
             ""actions"": [
                 {
@@ -88,6 +40,15 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
                     ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""1760822b-e53b-4b96-8c39-3a3fc448e639"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DropPickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""deb916d4-bc40-46cd-9f5b-cc53afdb81ef"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -152,6 +113,17 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""2b71a17f-206f-4965-8a92-2fef5b6bba35"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""e5850a56-ffa5-4c6e-a983-3b62fcc24cbf"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -160,20 +132,50 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97375da4-9aee-49bc-a034-78f7a7e8e5ee"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7fb3982f-f540-44dc-bac6-027b689f67de"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropPickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe2fb996-7371-4cf6-9adf-8eb742d940f6"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DropPickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Gamepad
-        m_Gamepad = asset.FindActionMap("Gamepad", throwIfNotFound: true);
-        m_Gamepad_Movement = m_Gamepad.FindAction("Movement", throwIfNotFound: true);
-        m_Gamepad_Dash = m_Gamepad.FindAction("Dash", throwIfNotFound: true);
-        // Keyboard
-        m_Keyboard = asset.FindActionMap("Keyboard", throwIfNotFound: true);
-        m_Keyboard_Movement = m_Keyboard.FindAction("Movement", throwIfNotFound: true);
-        m_Keyboard_Dash = m_Keyboard.FindAction("Dash", throwIfNotFound: true);
+        // Player Navigation
+        m_PlayerNavigation = asset.FindActionMap("Player Navigation", throwIfNotFound: true);
+        m_PlayerNavigation_Movement = m_PlayerNavigation.FindAction("Movement", throwIfNotFound: true);
+        m_PlayerNavigation_Dash = m_PlayerNavigation.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerNavigation_DropPickup = m_PlayerNavigation.FindAction("DropPickup", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -232,35 +234,40 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Gamepad
-    private readonly InputActionMap m_Gamepad;
-    private List<IGamepadActions> m_GamepadActionsCallbackInterfaces = new List<IGamepadActions>();
-    private readonly InputAction m_Gamepad_Movement;
-    private readonly InputAction m_Gamepad_Dash;
-    public struct GamepadActions
+    // Player Navigation
+    private readonly InputActionMap m_PlayerNavigation;
+    private List<IPlayerNavigationActions> m_PlayerNavigationActionsCallbackInterfaces = new List<IPlayerNavigationActions>();
+    private readonly InputAction m_PlayerNavigation_Movement;
+    private readonly InputAction m_PlayerNavigation_Dash;
+    private readonly InputAction m_PlayerNavigation_DropPickup;
+    public struct PlayerNavigationActions
     {
         private @PlayerInputScheme m_Wrapper;
-        public GamepadActions(@PlayerInputScheme wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Gamepad_Movement;
-        public InputAction @Dash => m_Wrapper.m_Gamepad_Dash;
-        public InputActionMap Get() { return m_Wrapper.m_Gamepad; }
+        public PlayerNavigationActions(@PlayerInputScheme wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_PlayerNavigation_Movement;
+        public InputAction @Dash => m_Wrapper.m_PlayerNavigation_Dash;
+        public InputAction @DropPickup => m_Wrapper.m_PlayerNavigation_DropPickup;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerNavigation; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GamepadActions set) { return set.Get(); }
-        public void AddCallbacks(IGamepadActions instance)
+        public static implicit operator InputActionMap(PlayerNavigationActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerNavigationActions instance)
         {
-            if (instance == null || m_Wrapper.m_GamepadActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_GamepadActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerNavigationActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerNavigationActionsCallbackInterfaces.Add(instance);
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @DropPickup.started += instance.OnDropPickup;
+            @DropPickup.performed += instance.OnDropPickup;
+            @DropPickup.canceled += instance.OnDropPickup;
         }
 
-        private void UnregisterCallbacks(IGamepadActions instance)
+        private void UnregisterCallbacks(IPlayerNavigationActions instance)
         {
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
@@ -268,85 +275,30 @@ public partial class @PlayerInputScheme: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @DropPickup.started -= instance.OnDropPickup;
+            @DropPickup.performed -= instance.OnDropPickup;
+            @DropPickup.canceled -= instance.OnDropPickup;
         }
 
-        public void RemoveCallbacks(IGamepadActions instance)
+        public void RemoveCallbacks(IPlayerNavigationActions instance)
         {
-            if (m_Wrapper.m_GamepadActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerNavigationActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IGamepadActions instance)
+        public void SetCallbacks(IPlayerNavigationActions instance)
         {
-            foreach (var item in m_Wrapper.m_GamepadActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerNavigationActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_GamepadActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerNavigationActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public GamepadActions @Gamepad => new GamepadActions(this);
-
-    // Keyboard
-    private readonly InputActionMap m_Keyboard;
-    private List<IKeyboardActions> m_KeyboardActionsCallbackInterfaces = new List<IKeyboardActions>();
-    private readonly InputAction m_Keyboard_Movement;
-    private readonly InputAction m_Keyboard_Dash;
-    public struct KeyboardActions
-    {
-        private @PlayerInputScheme m_Wrapper;
-        public KeyboardActions(@PlayerInputScheme wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Keyboard_Movement;
-        public InputAction @Dash => m_Wrapper.m_Keyboard_Dash;
-        public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(KeyboardActions set) { return set.Get(); }
-        public void AddCallbacks(IKeyboardActions instance)
-        {
-            if (instance == null || m_Wrapper.m_KeyboardActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_KeyboardActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
-            @Dash.started += instance.OnDash;
-            @Dash.performed += instance.OnDash;
-            @Dash.canceled += instance.OnDash;
-        }
-
-        private void UnregisterCallbacks(IKeyboardActions instance)
-        {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
-            @Dash.started -= instance.OnDash;
-            @Dash.performed -= instance.OnDash;
-            @Dash.canceled -= instance.OnDash;
-        }
-
-        public void RemoveCallbacks(IKeyboardActions instance)
-        {
-            if (m_Wrapper.m_KeyboardActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IKeyboardActions instance)
-        {
-            foreach (var item in m_Wrapper.m_KeyboardActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_KeyboardActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public KeyboardActions @Keyboard => new KeyboardActions(this);
-    public interface IGamepadActions
+    public PlayerNavigationActions @PlayerNavigation => new PlayerNavigationActions(this);
+    public interface IPlayerNavigationActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
-    }
-    public interface IKeyboardActions
-    {
-        void OnMovement(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
+        void OnDropPickup(InputAction.CallbackContext context);
     }
 }
